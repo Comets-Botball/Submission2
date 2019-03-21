@@ -6,14 +6,16 @@ int main()
 {	
     create_connect();
     camera_open_at_res(MED_RES); //320 x 240 res
-    camera_update();
+    
     printf("starting search \n");
-    printf("\n%d\n\n", get_object_count(0)); //prints object count for channel 0
-    while ( get_object_center_x(0,0) > 40 ){ //while object is not in center
-        printf("card not centered \n");      //pivot until it is in the center
+    camera_update();
+    
+    while ( get_object_center_x(0,0) > 140 ){ //while object is not in center
         camera_update();
+        printf("\n%d\n\n", get_object_count(0)); //prints object count for channel 0
+        printf("card not centered \n");      //pivot until it is in the center
         create_drive_direct(50,-50);
-        msleep(10000);
+        msleep(100);   //shorten value to 
     }
     camera_close();
     printf("Finished Search\n");
