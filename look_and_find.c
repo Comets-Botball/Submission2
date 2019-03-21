@@ -13,7 +13,7 @@ int main()
         printf("card not centered \n");      //pivot until it is in the center
         camera_update();
         create_drive_direct(50,-50);
-        msleep(100000);
+        msleep(10000);
     }
     camera_close();
     printf("Finished Search\n");
